@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "nodenext",
     "target": "esnext",
+    "outDir": "./build", 
     "types": [],
     "sourceMap": true,
     "declaration": true,
