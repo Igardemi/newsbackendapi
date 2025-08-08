@@ -3,6 +3,7 @@ import http from "http";
 import dotenv from "dotenv";
 import cors from "cors";
 import { connectToDb } from "./db/mongodb";
+import newsRoutes from "./routes/newsRoutes";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ async function bootstrap() {
   app.use(cors());
   app.use(express.static("public"));
   app.use(express.json());
+  app.use("/api/news", newsRoutes());
 
   const server: http.Server = http.createServer(app);
   server.listen(PORT, () => {
