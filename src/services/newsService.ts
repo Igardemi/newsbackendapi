@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
-import { NewsUseCases } from "../interfaces/NewsUseCase.js";
-import { News } from "../models/News.js";
 import NewsRepository from "../repository/newsRepository.js";
+import type { NewsUseCases } from "../interfaces/NewsUseCase.js";
+import type { News } from "../models/News.js";
 
 export default class NewsService implements NewsUseCases {
   constructor(private newsRepository: NewsRepository) {}

@@ -1,4 +1,4 @@
-import { News } from "../models/News.js";
+import type { News } from "../models/News.js";
 
 export interface NewsUseCases {
   create(title: string, description: string, content: string, author: string): Promise<News>;

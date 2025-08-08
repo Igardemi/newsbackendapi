@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import { db } from "../db/mongodb.js";
-import { News } from "../models/News.js";
+import type { News } from "../models/News.js";
 
 export default class NewsRepository {
   private readonly collection = db.collection<News>("news");
