@@ -11,7 +11,7 @@ export default function newsRoutes(): Router {
   const newsController = new NewsController(newsService);
 
   router.post(
-    "/",
+    "/news",
     [
       body("title").trim().notEmpty().isLength({ max: 120 }),
       body("description").trim().notEmpty(),
@@ -20,10 +20,10 @@ export default function newsRoutes(): Router {
     ],
     newsController.create
   );
-  router.get("/", newsController.getAllNews);
-  router.get("/archived", newsController.getAllNews);
-  router.patch("/:id/archive", [param("id").isMongoId()], newsController.archive);
-  router.delete("/:id", [param("id").isMongoId()], newsController.getAllNews);
+  router.get("/news", newsController.getAllNews);
+  router.get("/news/archived", newsController.getAllNews);
+  router.patch("/news/:id/archive", [param("id").isMongoId()], newsController.archive);
+  router.delete("/news/:id", [param("id").isMongoId()], newsController.getAllNews);
 
   return router;
 }

@@ -15,7 +15,7 @@ export class NewsController {
     return true;
   }
 
-  async create(req: Request, res: Response) {
+  create = async (req: Request, res: Response) => {
     if (!this.validateRequest(req, res)) return;
 
     try {
@@ -25,9 +25,9 @@ export class NewsController {
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
     }
-  }
+  };
 
-  async archive(req: Request, res: Response) {
+  archive = async (req: Request, res: Response) => {
     if (!this.validateRequest(req, res)) return;
 
     try {
@@ -37,9 +37,9 @@ export class NewsController {
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
     }
-  }
+  };
 
-  async getAllNews(req: Request, res: Response) {
+  getAllNews = async (req: Request, res: Response) => {
     try {
       const news = await this.newsService.getAllNews();
 
@@ -50,9 +50,9 @@ export class NewsController {
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
     }
-  }
+  };
 
-  async getAllArchivedNews(req: Request, res: Response) {
+  getAllArchivedNews = async (req: Request, res: Response) => {
     try {
       const news = await this.newsService.getAllArchived();
 
@@ -63,9 +63,9 @@ export class NewsController {
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
     }
-  }
+  };
 
-  async deleteNews(req: Request, res: Response) {
+  deleteNews = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
       if (!id) {
@@ -84,5 +84,5 @@ export class NewsController {
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
     }
-  }
+  };
 }

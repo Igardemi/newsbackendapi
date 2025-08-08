@@ -21,7 +21,7 @@ async function bootstrap() {
   app.use(cors());
   app.use(express.static("public"));
   app.use(express.json());
-  app.use("/api/news", newsRoutes());
+  app.use("/api", newsRoutes());
 
   const server: http.Server = http.createServer(app);
   server.listen(PORT, () => {
