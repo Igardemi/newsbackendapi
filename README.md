@@ -3,36 +3,37 @@
 ## Tecnologías utilizadas:
 
 **Noje.js** v22.18 (compatible con Amazon Linux 2023)
-**Express**
-**MongoDB**
-**Docker**
-**TypeScript**
+**Express**  
+**MongoDB**  
+**Docker**  
+**TypeScript**  
 
 ### Los servicios estarán disponibles en:
 
-API: http://localhost:3000/api
-MongoDB: mongodb://root:somepassword@localhost:27017
+API: http://localhost:3000/api  
+MongoDB: mongodb://root:somepassword@localhost:27017  
 
 ## Endpoints
 
-GET /api/news Obtener todas las noticias
-GET /api/news/archived Noticias archivadas
-POST /api/news Crear nueva noticia
-PUT /api/news/:id Actualizar noticia
-DELETE /api/news/:id Eliminar noticia
+GET /api/news Obtener todas las noticias  
+GET /api/news/archived Noticias archivadas  
+POST /api/news Crear nueva noticia  
+PUT /api/news/:id Actualizar noticia  
+DELETE /api/news/:id Eliminar noticia  
 
 ### Local Environment
 
-PORT=3000
-MONGO_USER='root'
-MONGO_PASSWORD='somepassword'
-MONGO_HOST='localhost'
-NODE_ENV=development
+PORT=3000  
+MONGO_USER='root'  
+MONGO_PASSWORD='somepassword'  
+MONGO_HOST='localhost'  
+NODE_ENV=development  
 
 ### Iniciar servicio en contenedores:
-
-docker-compose up -d --build
-
+```
+docker-compose up -d --build  
+```
 ### Detener servicio:
-
-docker-compose down
+```
+docker-compose down  
+```
