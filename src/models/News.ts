@@ -1,4 +1,4 @@
-import type { ObjectId } from "../../node_modules/mongodb/mongodb";
+import type { ObjectId } from "../../node_modules/mongodb/mongodb.js";
 
 export interface News {
   _id?: ObjectId;

@@ -2,8 +2,8 @@ import express from "express";
 import http from "http";
 import dotenv from "dotenv";
 import cors from "cors";
-import { connectToDb } from "./db/mongodb";
-import newsRoutes from "./routes/newsRoutes";
+import { connectToDb } from "./db/mongodb.js";
+import newsRoutes from "./routes/newsRoutes.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
