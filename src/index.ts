@@ -2,12 +2,20 @@ import express from "express";
 import http from "http";
 import dotenv from "dotenv";
 import cors from "cors";
+import { connectToDb } from "./db/mongodb";
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
 async function bootstrap() {
   const app = express();
+
+  try {
+    await connectToDb();
+    console.log("Dase de datos conectada");
+  } catch (error) {
+    console.error("Error conexión base de datos:", error);
+  }
 
   app.use(cors());
   app.use(express.static("public"));
