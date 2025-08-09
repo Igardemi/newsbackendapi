@@ -21,15 +21,11 @@ POST /api/news Crear nueva noticia
 PUT /api/news/:id/archive Actualizar noticia  
 DELETE /api/news/:id Eliminar noticia
 
-### Local Environment
+### Local or Dev Environment
 
-PORT=3000  
-MONGO_USER='root'  
-MONGO_PASSWORD='somepassword'  
-MONGO_HOST='localhost'  
-NODE_ENV=development
+Create .env file.
 
-### Iniciar servicio en contenedores:
+### Iniciar servicio en contenedores para desarrollo en local:
 
 ```
 docker-compose up -d --build
