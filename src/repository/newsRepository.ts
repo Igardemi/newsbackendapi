@@ -42,22 +42,15 @@ export default class NewsRepository {
   }
   async getAllNews(): Promise<News[]> {
     try {
-      const query = { archiveDate: null };
-      return await this.collection.find(query).sort({ date: -1 }).limit(50).toArray();
+      return await this.collection.find().sort({ date: -1 }).limit(50).toArray();
     } catch (error) {
       throw new Error("Error al obtener noticias.");
     }
   }
-  async getAllArchived(): Promise<News[]> {
-    try {
-      const query = { archiveDate: { $ne: null } };
-      return await this.collection.find(query).sort({ archiveDate: -1 }).limit(50).toArray();
-    } catch (error) {
-      throw new Error("Error al obtener noticias archivadas.");
-    }
-  }
+
   async delete(newsId: ObjectId): Promise<void> {
     try {
+      console.log(newsId);
       const result = await this.collection.deleteOne({ _id: newsId });
 
       if (result.deletedCount === 0) {

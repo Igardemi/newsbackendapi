@@ -29,10 +29,19 @@ export class NewsController {
 
   archive = async (req: Request, res: Response) => {
     if (!this.validateRequest(req, res)) return;
-
     try {
-      const { title, description, content, author } = req.body;
-      const news = await this.newsService.create(title, description, content, author);
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({
+          success: false,
+          message: "ID no proporcionado.",
+        });
+      }
+      if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ message: "ID inválido." });
+      }
+
+      const news = await this.newsService.archive(id);
       res.status(200).json({ message: "Noticia creada.", data: news });
     } catch (error) {
       res.status(500).json({ message: "Error interno del servidor" });
@@ -52,22 +61,10 @@ export class NewsController {
     }
   };
 
-  getAllArchivedNews = async (req: Request, res: Response) => {
-    try {
-      const news = await this.newsService.getAllArchived();
-
-      res.status(200).json({
-        message: "Noticias archivadas obtenidas.",
-        data: news,
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Error interno del servidor" });
-    }
-  };
-
   deleteNews = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
+      console.log(id);
       if (!id) {
         return res.status(400).json({
           success: false,
@@ -77,6 +74,7 @@ export class NewsController {
       if (!ObjectId.isValid(id)) {
         return res.status(400).json({ message: "ID inválido." });
       }
+      console.log(id);
       await this.newsService.delete(id);
       res.status(200).json({
         message: "Noticia eliminada.",

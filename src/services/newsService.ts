@@ -60,15 +60,4 @@ export default class NewsService implements NewsUseCases {
       throw new Error("Error desconocido al obtener noticias.");
     }
   }
-  async getAllArchived(): Promise<News[]> {
-    try {
-      const news = await this.newsRepository.getAllArchived();
-      return news;
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(`Error al obtener noticias archivadas: ${error.message}`);
-      }
-      throw new Error("Error desconocido al obtener noticias archivadas.");
-    }
-  }
 }
