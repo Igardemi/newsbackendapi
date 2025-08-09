@@ -6,7 +6,7 @@ export const connectToDb = async (): Promise<void> => {
   if (!db) {
     try {
       const client = new MongoClient(
-        `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:27017/`
+        `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?retryWrites=true&w=majority&appName=Cluster0`
       );
       client.connect().catch((err) => {
         console.error("Error connecting to MongoDB:", err);
