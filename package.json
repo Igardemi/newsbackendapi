@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"tsc",
     "dev":"tsx watch src/index.ts",
-    "mockup": "tsx src/data/script/exampleNews.ts",
+    "mockup": "tsx src/test/script/exampleNews.ts",
     "start": "node build/index.js"
   },
   "repository": {
