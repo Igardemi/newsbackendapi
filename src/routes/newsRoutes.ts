@@ -21,7 +21,6 @@ export default function newsRoutes(): Router {
     newsController.create
   );
   router.get("/news", newsController.getAllNews);
-  router.get("/news/archived", newsController.getAllNews);
   router.put("/news/:id/archive", [param("id").isMongoId()], newsController.archive);
   router.delete("/news/:id", [param("id").isMongoId()], newsController.deleteNews);
 
