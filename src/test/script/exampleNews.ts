@@ -1,7 +1,8 @@
 import { MongoClient } from "mongodb";
 import { sampleNews } from "./data.js";
-
-const uri = `mongodb+srv://igardemi:wM6RdVhZxMpFo107@cluster0.bzgx0d5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+import dotenv from "dotenv";
+dotenv.config();
+const uri = process.env.MONGO_HOST || "mongodb://root:somepassword@localhost:27017/";
 const dbName = "allfunds";
 const collectionName = "news";
 
